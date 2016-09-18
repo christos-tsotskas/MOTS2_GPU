@@ -95,8 +95,8 @@ public:
 	//constructors
 	//ObjectiveFunctionBasic();
 
-	ObjectiveFunctionBasic(ConfigurationSettings &conf2);
-	ObjectiveFunctionBasic(ConfigurationSettings &conf2, objective_function_formulae &formulae);
+	ObjectiveFunctionBasic(ExternalConfigurationSettingsForTheOptimisationProblem &conf2);
+	ObjectiveFunctionBasic(ExternalConfigurationSettingsForTheOptimisationProblem &conf2, objective_function_formulae &formulae);
 	double sum(const Point2 &Pnt);
 
 	ObjFunction2 get_penalty_objectives();
@@ -122,9 +122,9 @@ typedef ObjectiveFunctionBasic<double> ObjectiveFunction;
 #endif
 
 template<typename T>
-ObjectiveFunctionBasic<T>::ObjectiveFunctionBasic(ConfigurationSettings &conf2) :
+ObjectiveFunctionBasic<T>::ObjectiveFunctionBasic(ExternalConfigurationSettingsForTheOptimisationProblem &conf2) :
 nVar(conf2.getExternalConfigurationFile().getVar()),
-nObj(conf2.getExternalConfigurationFile().getObj()),
+nObj(conf2.getExternalConfigurationFile().getNumberOfObjectives()),
 n_of_successful_calculations(0),
 violations(0),
 min_bound(conf2.get_lower_bound()),
@@ -211,9 +211,9 @@ __formulae(nVar)
 }
 
 template<typename T>
-ObjectiveFunctionBasic<T>::ObjectiveFunctionBasic(ConfigurationSettings &conf2, objective_function_formulae &formulae) :
+ObjectiveFunctionBasic<T>::ObjectiveFunctionBasic(ExternalConfigurationSettingsForTheOptimisationProblem &conf2, objective_function_formulae &formulae) :
 nVar(conf2.getExternalConfigurationFile().getVar()),
-nObj(conf2.getExternalConfigurationFile().getObj()),
+nObj(conf2.getExternalConfigurationFile().getNumberOfObjectives()),
 n_of_successful_calculations(0),
 violations(0),
 min_bound(conf2.get_lower_bound()),

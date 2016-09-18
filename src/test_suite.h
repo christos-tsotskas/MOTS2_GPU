@@ -47,7 +47,7 @@ public:
 
 
 test_report tabu_test_ZDT1(std::string mycasename, int flag);
-test_report tabu_test_ZDT2(std::string mycasename, int flag, int nVar);
+test_report tabu_test_ZDT2(std::string mycasename, externalTopLevelConfigurationFile this_ext_conf_file, int flag, int nVar);
 test_report tabu_test_ZDT3(std::string mycasename, int flag);
 test_report tabu_test_ZDT4(std::string mycasename, int flag);
 test_report tabu_test_ZDT6(std::string mycasename, int flag);

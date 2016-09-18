@@ -14,52 +14,53 @@
  * Contains the external settings, as read on the configuration file prescribed
  */
 
-class external_configuration_file{
-	std::string __filename;
-	unsigned int __diversify;
-	unsigned int __intensify;
-	unsigned int __reduce;
-	double __SS;
-	double __SSRF;
-	unsigned int __save_step;
-	unsigned int __n_sample;
-	unsigned int __nVar;
-	unsigned int __nObj;
+class externalTopLevelConfigurationFile{
+	std::string __filename; //1
+	unsigned int __diversify; //2
+	unsigned int __intensify; //3
+	unsigned int __reduce; //4
+	double __SS; //5
+	double __SSRF; //6
+	unsigned int __save_step; //7
+	unsigned int __n_sample; //8
+	unsigned int __nVar; //9
+	unsigned int __nObj; //10
 	unsigned int __LL; //loop limit
 	unsigned int __EL; //evaluations limit
 	unsigned int __IL; //Improvements limit , number of consecutive improvements
-	unsigned int __nRegions;
-	unsigned int __STM_size;
-	std::string __assessment;
-	std::string __logtype;
-	double __starting_point;
-	unsigned int __maximum_improvements;
-	unsigned int __maximum_duplicates;
+	unsigned int __nRegions; //14
+	unsigned int __STM_size; //15
+	std::string __assessment; //16
+	std::string __logtype; //17
+	double __starting_point; //18
+	unsigned int __maximum_improvements; //19
+	unsigned int __maximum_duplicates; //20
 
 public:
-	external_configuration_file(std::string filename,
-	unsigned int diversify,
-	unsigned int intensify,
-	unsigned int reduce,
-	double SS,
-	double SSRF,
-	unsigned int save_step,
-	unsigned int n_sample,
-	unsigned int nVar,
-	unsigned int nObj,
-	unsigned int LL, //loop limit
-	unsigned int EL, //evaluations limit
-	unsigned int IL, //Improvements limit , number of consecutive improvements
-	unsigned int nRegions,
-	unsigned int STM_size,
-	std::string assessment,
-	std::string logtype,
-	double starting_point,
-	unsigned int maximum_improvements,
-	unsigned int maximum_duplicates);
+	externalTopLevelConfigurationFile(
+			std::string filename, //1
+	unsigned int diversify, //2
+	unsigned int intensify, //3
+	unsigned int reduce, //4
+	double SS, //5
+	double SSRF, //6
+	unsigned int save_step, //7
+	unsigned int n_sample, //8
+	unsigned int nVar, //9
+	unsigned int nObj, //10
+	unsigned int LL, //11, loop limit
+	unsigned int EL, //12, evaluations limit
+	unsigned int IL, //13, Improvements limit , number of consecutive improvements
+	unsigned int nRegions, //14
+	unsigned int STM_size, //15
+	std::string assessment, //16
+	std::string logtype, //17
+	double starting_point, //18
+	unsigned int maximum_improvements, //19
+	unsigned int maximum_duplicates); //20
 
 	void show_configurations() const;
-	external_configuration_file(char const *name);
+	externalTopLevelConfigurationFile(char const *name);
 	unsigned int get_decision_variable_size();
 	unsigned int get_objectives_size();
 
@@ -88,7 +89,7 @@ public:
 
 	unsigned int getSample() const ;
 
-	unsigned int getObj() const ;
+	unsigned int getNumberOfObjectives() const ;
 
 	unsigned int getRegions() const ;
 

@@ -108,7 +108,7 @@ class TabuSearch{
 	deque<Point> temp_deque;
 #endif
 	std::string __case_name;
-	const ConfigurationSettings __DefaultConfigurationSettings;
+	const ExternalConfigurationSettingsForTheOptimisationProblem __DefaultConfigurationSettings;
 	int restart_flag;
 	unsigned int diversify;
 	unsigned int intensify;
@@ -205,7 +205,7 @@ class TabuSearch{
 public:
 
 	const Point2& getDatumPnt() const;
-	TabuSearch(std::string case_name,  ConfigurationSettings &conf_set,  int restart_flag_argument,
+	TabuSearch(std::string case_name,  ExternalConfigurationSettingsForTheOptimisationProblem &conf_set,  int restart_flag_argument,
 			ObjectiveFunction &ObjectiveFunctionModule,
 			Container2 &MediumTermMemory,
 			Container2 &IntensificationMemory,

@@ -13,15 +13,15 @@
 
 extern int FileExists(char const *strFilename);
 
-const std::string& ConfigurationSettings::getCaseName() const {
+const std::string& ExternalConfigurationSettingsForTheOptimisationProblem::getCaseName() const {
 	return __case_name;
 }
 
-ConfigurationSettings::~ConfigurationSettings(){
+ExternalConfigurationSettingsForTheOptimisationProblem::~ExternalConfigurationSettingsForTheOptimisationProblem(){
 	std::cout << "end of configuration settings" << std::endl;
 }
 
-ObjFunction2  ConfigurationSettings::read_vector_from_file(char const *filename, char const *file_description, const int elements,const int necessary){
+ObjFunction2  ExternalConfigurationSettingsForTheOptimisationProblem::read_vector_from_file(char const *filename, char const *file_description, const int elements,const int necessary){
 	ObjFunction2 ObjPnt(elements,1111.0);
 	std::cout << std::endl << file_description << " file (" <<filename <<")...";
 	std::ifstream FILE(filename);
@@ -60,8 +60,8 @@ ObjFunction2  ConfigurationSettings::read_vector_from_file(char const *filename,
 
 
 
-ConfigurationSettings::ConfigurationSettings(std::string case_name,
-		external_configuration_file &ExternalConfigurationFile,
+ExternalConfigurationSettingsForTheOptimisationProblem::ExternalConfigurationSettingsForTheOptimisationProblem(std::string case_name,
+		externalTopLevelConfigurationFile &ExternalConfigurationFile,
 		std::string ReferencePointFilename,
 		std::string PenaltyPointFilename,
 		std::string LowerBoundFilename,
@@ -83,8 +83,8 @@ ConfigurationSettings::ConfigurationSettings(std::string case_name,
 
 
 	//read_design_vector_file( starting_point, "datum_design_vector.txt", "datum design", datumPnt, TS_ObjFunc.min_bound, TS_ObjFunc.max_bound);
-	reference_point=read_vector_from_file(ReferencePointFilename.c_str(), "reference point", ExternalConfigurationFile.getObj(), 1);
-	penalty_point=read_vector_from_file(PenaltyPointFilename.c_str(), "penalty point", ExternalConfigurationFile.getObj(), 1);
+	reference_point=read_vector_from_file(ReferencePointFilename.c_str(), "reference point", ExternalConfigurationFile.getNumberOfObjectives(), 1);
+	penalty_point=read_vector_from_file(PenaltyPointFilename.c_str(), "penalty point", ExternalConfigurationFile.getNumberOfObjectives(), 1);
 	lower_bound=read_vector_from_file(LowerBoundFilename.c_str(), "lower bound", ExternalConfigurationFile.getVar(), 1);
 	upper_bound=read_vector_from_file(UpperBoundFilename.c_str(), "upper bound", ExternalConfigurationFile.getVar(), 1);
 
@@ -106,31 +106,31 @@ ConfigurationSettings::ConfigurationSettings(std::string case_name,
 	ExternalConfigurationFile.list_readings();
 }
 
-const ObjFunction2& ConfigurationSettings::get_reference_point() const{
+const ObjFunction2& ExternalConfigurationSettingsForTheOptimisationProblem::get_reference_point() const{
 	return reference_point;
 }
 
-const ObjFunction2& ConfigurationSettings::get_penalty_point() const{
+const ObjFunction2& ExternalConfigurationSettingsForTheOptimisationProblem::get_penalty_point() const{
 	return penalty_point;
 }
 
-const Point2& ConfigurationSettings::get_lower_bound() const{
+const Point2& ExternalConfigurationSettingsForTheOptimisationProblem::get_lower_bound() const{
 	return lower_bound;
 }
 
-const Point2& ConfigurationSettings::get_upper_bound() const{
+const Point2& ExternalConfigurationSettingsForTheOptimisationProblem::get_upper_bound() const{
 	return upper_bound;
 }
 
-const Point2& ConfigurationSettings::get_starting_point() const{
+const Point2& ExternalConfigurationSettingsForTheOptimisationProblem::get_starting_point() const{
 	return starting_point;
 }
 
-const external_configuration_file& ConfigurationSettings::getExternalConfigurationFile() const {
+const externalTopLevelConfigurationFile& ExternalConfigurationSettingsForTheOptimisationProblem::getExternalConfigurationFile() const {
 	return __ExternalConfigurationFile;
 }
 
-Point2 ConfigurationSettings::generateRandomPointWithinBounds() const{
+Point2 ExternalConfigurationSettingsForTheOptimisationProblem::generateRandomPointWithinBounds() const{
 
 
 	Point2 newRandomPoint(lower_bound.size(),0.0);
@@ -143,6 +143,6 @@ Point2 ConfigurationSettings::generateRandomPointWithinBounds() const{
 	return newRandomPoint;
 }
 
-const Point2& ConfigurationSettings::get_current_step() const{
+const Point2& ExternalConfigurationSettingsForTheOptimisationProblem::get_current_step() const{
 	return current_step;
 }

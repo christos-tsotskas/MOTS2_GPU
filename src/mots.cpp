@@ -407,7 +407,7 @@ Point2 TabuSearch::sample_and_assess(int discovery_evaluations){
 
 TabuSearch::TabuSearch(
 		std::string case_name,
-		ConfigurationSettings &conf_set,  int restart_flag_argument,
+		ExternalConfigurationSettingsForTheOptimisationProblem &conf_set,  int restart_flag_argument,
 		ObjectiveFunction &ObjectiveFunctionModule,
 		Container2 &MediumTermMemory,
 		Container2 &IntensificationMemory,
@@ -426,7 +426,7 @@ TabuSearch::TabuSearch(
 			save_step(conf_set.getExternalConfigurationFile().getSaveStep()),//6
 			n_sample(conf_set.getExternalConfigurationFile().getSample()),//7
 			nVar(conf_set.getExternalConfigurationFile().getVar()),//8
-			nObj(conf_set.getExternalConfigurationFile().getObj()),//9
+			nObj(conf_set.getExternalConfigurationFile().getNumberOfObjectives()),//9
 			LL(conf_set.getExternalConfigurationFile().getLl()),//10
 			EL(conf_set.getExternalConfigurationFile().getEl()),//11
 			IL(conf_set.getExternalConfigurationFile().getIl()),//12

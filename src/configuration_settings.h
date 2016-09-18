@@ -28,10 +28,10 @@
 #include "global_defines.h"
 #include "external_configuration_file.h"
 
-class ConfigurationSettings{
+class ExternalConfigurationSettingsForTheOptimisationProblem{
 	//todo make configurations a map and then load the settings
 	std::string __case_name;
-	external_configuration_file __ExternalConfigurationFile;
+	externalTopLevelConfigurationFile __ExternalConfigurationFile;
 	ObjFunction2 reference_point;
 	ObjFunction2 penalty_point;
 	Point2 lower_bound;
@@ -42,8 +42,8 @@ class ConfigurationSettings{
 	ObjFunction2  read_vector_from_file(char const *filename, char const *file_description, const int elements,const int necessary);
 
 public:
-	ConfigurationSettings(std::string case_name,
-			external_configuration_file &ExternalConfigurationFile,
+	ExternalConfigurationSettingsForTheOptimisationProblem(std::string case_name,
+			externalTopLevelConfigurationFile &ExternalConfigurationFile,
 			std::string ReferencePointFilename,
 			std::string PenaltyPointFilename,
 			std::string LowerBoundFilename,
@@ -51,14 +51,14 @@ public:
 			std::string StartingPointFilename,
 			std::string CurrentStepFilename);
 
-	~ConfigurationSettings();
+	~ExternalConfigurationSettingsForTheOptimisationProblem();
 	const ObjFunction2& get_reference_point() const;
 	const Point2& get_starting_point() const;
 	const Point2& get_current_step() const;
 	const ObjFunction2& get_penalty_point() const;
 	const Point2& get_lower_bound() const;
 	const Point2& get_upper_bound() const;
-	const external_configuration_file& getExternalConfigurationFile() const;
+	const externalTopLevelConfigurationFile& getExternalConfigurationFile() const;
 	Point2 generateRandomPointWithinBounds() const;
 	const std::string& getCaseName() const;
 };

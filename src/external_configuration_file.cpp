@@ -15,122 +15,123 @@
 
 extern int FileExists(char const *strFilename);
 
-unsigned int external_configuration_file::get_decision_variable_size(){
+unsigned int externalTopLevelConfigurationFile::get_decision_variable_size(){
 	return __nVar;
 }
 
-unsigned int external_configuration_file::get_objectives_size(){
+unsigned int externalTopLevelConfigurationFile::get_objectives_size(){
 	return __nObj;
 }
 
-std::string external_configuration_file::get_filename(){
+std::string externalTopLevelConfigurationFile::get_filename(){
 	return __filename;
 }
 
-void external_configuration_file::list_readings(){
+void externalTopLevelConfigurationFile::list_readings(){
 
 }
 
-const std::string& external_configuration_file::getAssessment() const {
+const std::string& externalTopLevelConfigurationFile::getAssessment() const {
 	return __assessment;
 }
 
-unsigned int external_configuration_file::getDiversify() const {
+unsigned int externalTopLevelConfigurationFile::getDiversify() const {
 	return __diversify;
 }
 
-unsigned int external_configuration_file::getEl() const {
+unsigned int externalTopLevelConfigurationFile::getEl() const {
 	return __EL;
 }
 
-const std::string& external_configuration_file::getFilename() const {
+const std::string& externalTopLevelConfigurationFile::getFilename() const {
 	return __filename;
 }
 
-unsigned int external_configuration_file::getIl() const {
+unsigned int externalTopLevelConfigurationFile::getIl() const {
 	return __IL;
 }
 
-unsigned int external_configuration_file::getIntensify() const {
+unsigned int externalTopLevelConfigurationFile::getIntensify() const {
 	return __intensify;
 }
 
-unsigned int external_configuration_file::getLl() const {
+unsigned int externalTopLevelConfigurationFile::getLl() const {
 	return __LL;
 }
 
-const std::string& external_configuration_file::getLogtype() const {
+const std::string& externalTopLevelConfigurationFile::getLogtype() const {
 	return __logtype;
 }
 
-unsigned int external_configuration_file::getMaximumDuplicates() const {
+unsigned int externalTopLevelConfigurationFile::getMaximumDuplicates() const {
 	return __maximum_duplicates;
 }
 
-unsigned int external_configuration_file::getMaximumImprovements() const {
+unsigned int externalTopLevelConfigurationFile::getMaximumImprovements() const {
 	return __maximum_improvements;
 }
 
-unsigned int external_configuration_file::getSample() const {
+unsigned int externalTopLevelConfigurationFile::getSample() const {
 	return __n_sample;
 }
 
-unsigned int external_configuration_file::getObj() const {
+unsigned int externalTopLevelConfigurationFile::getNumberOfObjectives() const {
 	return __nObj;
 }
 
-unsigned int external_configuration_file::getRegions() const {
+unsigned int externalTopLevelConfigurationFile::getRegions() const {
 	return __nRegions;
 }
 
-unsigned int external_configuration_file::getVar() const {
+unsigned int externalTopLevelConfigurationFile::getVar() const {
 	return __nVar;
 }
 
-unsigned int external_configuration_file::getReduce() const {
+unsigned int externalTopLevelConfigurationFile::getReduce() const {
 	return __reduce;
 }
 
-unsigned int external_configuration_file::getSaveStep() const {
+unsigned int externalTopLevelConfigurationFile::getSaveStep() const {
 	return __save_step;
 }
 
-double external_configuration_file::getSs() const {
+double externalTopLevelConfigurationFile::getSs() const {
 	return __SS;
 }
 
-double external_configuration_file::getSsrf() const {
+double externalTopLevelConfigurationFile::getSsrf() const {
 	return __SSRF;
 }
 
-double external_configuration_file::getStartingPoint() const {
+double externalTopLevelConfigurationFile::getStartingPoint() const {
 	return __starting_point;
 }
 
-unsigned int external_configuration_file::getStmSize() const {
+unsigned int externalTopLevelConfigurationFile::getStmSize() const {
 	return __STM_size;
 }
 
-external_configuration_file::external_configuration_file(std::string filename,
-unsigned int diversify,
-unsigned int intensify,
-unsigned int reduce,
-double SS,
-double SSRF,
-unsigned int save_step,
-unsigned int n_sample,
-unsigned int nVar,
-unsigned int nObj,
-unsigned int LL, //loop limit
-unsigned int EL, //evaluations limit
-unsigned int IL, //Improvements limit , number of consecutive improvements
-unsigned int nRegions,
-unsigned int STM_size,
-std::string assessment,
-std::string logtype,
-double starting_point,
-unsigned int maximum_improvements,
-unsigned int maximum_duplicates):
+externalTopLevelConfigurationFile::externalTopLevelConfigurationFile(
+		std::string filename, //1
+unsigned int diversify, //2
+unsigned int intensify, //3
+unsigned int reduce, //4
+double SS, //5
+double SSRF, //6
+unsigned int save_step, //7
+unsigned int n_sample, //8
+unsigned int nVar, //9
+unsigned int nObj, //10
+unsigned int LL, //11, loop limit
+unsigned int EL, //12, evaluations limit
+unsigned int IL, //13, Improvements limit , number of consecutive improvements
+unsigned int nRegions, //14
+unsigned int STM_size, //15
+std::string assessment, //16
+std::string logtype, //17
+double starting_point, //18
+unsigned int maximum_improvements, //19
+unsigned int maximum_duplicates): //20
 
 		__filename(filename),
 __diversify(diversify),
@@ -156,7 +157,7 @@ __maximum_duplicates(maximum_duplicates) {
 	show_configurations();
 }
 
-void external_configuration_file::show_configurations() const{
+void externalTopLevelConfigurationFile::show_configurations() const{
 	std::cout << std::endl << "Tabu Search Options" << std::endl;
 
 	std::cout << " 1.diversify " << __diversify << std::endl;
@@ -196,7 +197,7 @@ void external_configuration_file::show_configurations() const{
 	std::cout << " 19.maximum_duplicates " <<  __maximum_duplicates<< std::endl;
 }
 
-external_configuration_file::external_configuration_file(char const *filename):
+externalTopLevelConfigurationFile::externalTopLevelConfigurationFile(char const *filename):
 												__filename(filename),
 												__diversify(0),
 												__intensify(0),

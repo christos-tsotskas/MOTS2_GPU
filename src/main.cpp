@@ -82,26 +82,48 @@ int main(int argc, char *argv[]){
 
 	std::ostringstream mycasename;
 	test_report tr("t1", Point2(1,1), 1.0);
-	std::ofstream test_report_file("all_tests.txt");
+	std::ofstream test_report_file("all_tests_phd_corrections3.txt");
 
+	int nVar = 10;
+	externalTopLevelConfigurationFile this_ext_conf_file(
+			"none",//1
+			20, //2
+			10, //3
+			35, //4
+			0.05, //5
+			0.5, //6
+			175, //7
+			(int) std::ceil( nVar / 5), //8, number of samples
+			nVar, //9, number of variables
+			2, //10
+			0, //11 loop limit
+			5000, //12 evaluations limit
+			0, //13 Improvements limit , number of consecutive improvements
+			4, //14
+			(int) std::ceil( nVar * 2/3), //15
+			"HV", // 16
+			"full", //17
+			1, //18
+			2000000, //19
+			2000000); //20
 
 	if(test_report_file.is_open()){
-		for(int i=7;i<11; ++i){
+		for(int loop_index=7;loop_index<9; ++loop_index){
 
 			//perform optimisation search
 
-			mycasename << "case_" << i ;
+			mycasename << "case_" << loop_index ;
 
 			//		test_report tr (tabu_test_ZDT1(mycasename.str(), flag));
 			//		test_report tr (tabu_test_ZDT2(mycasename.str(), flag, i*30 ));
 			//		test_report tr (tabu_test_ZDT3(mycasename.str(), flag));
 			//		test_report tr (tabu_test_ZDT4(mycasename.str(), flag));
 			//		test_report tr (tabu_test_ZDT6(mycasename.str(), flag));
+			int number_of_variables = loop_index*loop_index*30;
+			tr=tabu_test_ZDT2(mycasename.str(), this_ext_conf_file, flag, number_of_variables);
 
-			tr=tabu_test_ZDT2(mycasename.str(), flag, i*i*30 );
-
-			std::cout << "loop " << i << ": " << tr.show()  << std::endl;
-			test_report_file << "loop " << i << ": " << tr.show()  << std::endl;
+			std::cout << "loop " << loop_index << ": " << tr.show()  << std::endl;
+			test_report_file << "loop " << loop_index << ": " << tr.show()  << std::endl;
 
 
 			mycasename.clear();
