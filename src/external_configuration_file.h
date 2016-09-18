@@ -9,6 +9,7 @@
 #define EXTERNAL_CONFIGURATION_FILE_H_
 
 #include <cstring>
+#include <cmath>
 
 /**
  * Contains the external settings, as read on the configuration file prescribed
@@ -107,8 +108,15 @@ public:
 
 	unsigned int getStmSize() const;
 
+	void updateRelatedParameters(){
+		__n_sample = (int) std::ceil( __nVar / 5);
+		__STM_size = (int) std::ceil( __nVar * 2/3);
+	}
 
-
+	void setVar(unsigned int var) {
+		__nVar = var;
+		updateRelatedParameters();
+	}
 };
 
 #endif /* EXTERNAL_CONFIGURATION_FILE_H_ */

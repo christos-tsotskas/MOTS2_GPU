@@ -4,12 +4,12 @@ MOTS2 configuration:!
 	3.reduce 35
 	4.SS 0.05
 	5.SSRF 0.5
-	6.save_step 175
+	6.save_step 400
 	7.n_sample 96
 	8.nVar 480
 	9.nObj 2
 	10.n_of_loops 0
-	11.n_of_evaluations 288000
+	11.n_of_evaluations 5000
 	12.n_of_consecutive_improvements 0
 	13.assessment HV
 	14.nRegions 4
@@ -504,7 +504,7 @@ Design vector ranges:
 
 
 Reference point:
-	21 32 
+	20 20 
 
 
 Failed objectives:

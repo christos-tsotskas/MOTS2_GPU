@@ -4,16 +4,16 @@ MOTS2 configuration:!
 	3.reduce 35
 	4.SS 0.05
 	5.SSRF 0.5
-	6.save_step 175
-	7.n_sample 6
-	8.nVar 30
+	6.save_step 400
+	7.n_sample 12
+	8.nVar 60
 	9.nObj 2
 	10.n_of_loops 0
-	11.n_of_evaluations 18000
+	11.n_of_evaluations 5000
 	12.n_of_consecutive_improvements 0
 	13.assessment HV
 	14.nRegions 4
-	15.STM_size 20
+	15.STM_size 40
 	16.LogType full
 	17.Starting point 1
 	18.maximum_improvements 2000000
@@ -51,10 +51,40 @@ Design vector ranges:
 	variable 27 ranges from 0 to 1
 	variable 28 ranges from 0 to 1
 	variable 29 ranges from 0 to 1
+	variable 30 ranges from 0 to 1
+	variable 31 ranges from 0 to 1
+	variable 32 ranges from 0 to 1
+	variable 33 ranges from 0 to 1
+	variable 34 ranges from 0 to 1
+	variable 35 ranges from 0 to 1
+	variable 36 ranges from 0 to 1
+	variable 37 ranges from 0 to 1
+	variable 38 ranges from 0 to 1
+	variable 39 ranges from 0 to 1
+	variable 40 ranges from 0 to 1
+	variable 41 ranges from 0 to 1
+	variable 42 ranges from 0 to 1
+	variable 43 ranges from 0 to 1
+	variable 44 ranges from 0 to 1
+	variable 45 ranges from 0 to 1
+	variable 46 ranges from 0 to 1
+	variable 47 ranges from 0 to 1
+	variable 48 ranges from 0 to 1
+	variable 49 ranges from 0 to 1
+	variable 50 ranges from 0 to 1
+	variable 51 ranges from 0 to 1
+	variable 52 ranges from 0 to 1
+	variable 53 ranges from 0 to 1
+	variable 54 ranges from 0 to 1
+	variable 55 ranges from 0 to 1
+	variable 56 ranges from 0 to 1
+	variable 57 ranges from 0 to 1
+	variable 58 ranges from 0 to 1
+	variable 59 ranges from 0 to 1
 
 
 Reference point:
-	21 32 
+	20 20 
 
 
 Failed objectives:
@@ -63,11 +93,11 @@ Failed objectives:
 
 Start step (related with SS, above):
 	 Start step(s) (0.05)  is uniform for all variables
-	0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 
+	0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 0.05 
 
 
 Datum design (related with Stating point, above):
 	 Starting point is by user from file
-	0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 
+	0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 
 
 

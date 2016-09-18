@@ -28,7 +28,7 @@ public:
 
 	std::string show(){
 		std::ostringstream string_line_report;
-		string_line_report << __case_name << "\t"<< __initial_point << "\tHV:" << __HV;
+		string_line_report << __case_name  << "\tHV: " << __HV << "\t"<< __initial_point;
 		return string_line_report.str();
 	}
 };

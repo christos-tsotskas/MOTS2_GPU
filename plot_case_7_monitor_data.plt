@@ -5,8 +5,8 @@ set title "Monitor Data"
 set xlabel "Optimisation step" 
 set ylabel "Number of unsuccessful iterations" 
 set grid
-set xrange [0:36566]
-set yrange [0:172]
+set xrange [0:16]
+set yrange [0:39]
 # Line styles
 set border linewidth 1.5
 set style line 1 linecolor rgb '#0000ff' linetype 1 linewidth 3  pointtype -1 pointsize default # blue 

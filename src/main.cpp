@@ -17,7 +17,7 @@
 #include "objective_function_formulae.h"
 #include "objective_function.h"
 #include "verification_code.h"
-
+#include <ctime>
 #include <fstream>
 
 #include <vector>
@@ -78,13 +78,16 @@ int main(int argc, char *argv[]){
 	//	objective_function_formulae ZDT1_test(2);
 	//	dummy_test(ZDT1_test);
 
+	struct timespec start, finish;
+	double elapsed;
+
 
 
 	std::ostringstream mycasename;
 	test_report tr("t1", Point2(1,1), 1.0);
 	std::ofstream test_report_file("all_tests_phd_corrections3.txt");
 
-	int nVar = 10;
+	int nVar = 30;
 	externalTopLevelConfigurationFile this_ext_conf_file(
 			"none",//1
 			20, //2
@@ -92,12 +95,12 @@ int main(int argc, char *argv[]){
 			35, //4
 			0.05, //5
 			0.5, //6
-			175, //7
+			400, //7
 			(int) std::ceil( nVar / 5), //8, number of samples
 			nVar, //9, number of variables
 			2, //10
 			0, //11 loop limit
-			5000, //12 evaluations limit
+			10000, //12 evaluations limit
 			0, //13 Improvements limit , number of consecutive improvements
 			4, //14
 			(int) std::ceil( nVar * 2/3), //15
@@ -108,28 +111,37 @@ int main(int argc, char *argv[]){
 			2000000); //20
 
 	if(test_report_file.is_open()){
-		for(int loop_index=7;loop_index<9; ++loop_index){
+		for(int sample=0; sample<20; ++sample){
+			for(int loop_index=0;loop_index<9; ++loop_index){
 
-			//perform optimisation search
+				//perform optimisation search
 
-			mycasename << "case_" << loop_index ;
+				mycasename << "case_" << loop_index ;
 
-			//		test_report tr (tabu_test_ZDT1(mycasename.str(), flag));
-			//		test_report tr (tabu_test_ZDT2(mycasename.str(), flag, i*30 ));
-			//		test_report tr (tabu_test_ZDT3(mycasename.str(), flag));
-			//		test_report tr (tabu_test_ZDT4(mycasename.str(), flag));
-			//		test_report tr (tabu_test_ZDT6(mycasename.str(), flag));
-			int number_of_variables = loop_index*loop_index*30;
-			tr=tabu_test_ZDT2(mycasename.str(), this_ext_conf_file, flag, number_of_variables);
+				//		test_report tr (tabu_test_ZDT1(mycasename.str(), flag));
+				//		test_report tr (tabu_test_ZDT2(mycasename.str(), flag, i*30 ));
+				//		test_report tr (tabu_test_ZDT3(mycasename.str(), flag));
+				//		test_report tr (tabu_test_ZDT4(mycasename.str(), flag));
+				//		test_report tr (tabu_test_ZDT6(mycasename.str(), flag));
+				int number_of_variables = 30*pow(2, loop_index);
+				this_ext_conf_file.setVar(number_of_variables);
 
-			std::cout << "loop " << loop_index << ": " << tr.show()  << std::endl;
-			test_report_file << "loop " << loop_index << ": " << tr.show()  << std::endl;
+				clock_gettime(CLOCK_MONOTONIC, &start);
+				tr=tabu_test_ZDT2(mycasename.str(), this_ext_conf_file, flag, number_of_variables);
+				clock_gettime(CLOCK_MONOTONIC, &finish);
+
+				elapsed = (finish.tv_sec - start.tv_sec);
+				elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+
+				std::cout << "loop " << loop_index << ": nVar: " << number_of_variables <<"\ttime(s):" << elapsed << "\t" << tr.show()  << std::endl;
+				test_report_file << "loop " << loop_index << ": nVar: " << number_of_variables <<"\ttime(s):" << elapsed << "\t" << tr.show()  << std::endl;
 
 
-			mycasename.clear();
-			mycasename.str(std::string());
+				mycasename.clear();
+				mycasename.str(std::string());
 
-			std::cin >> flag;
+				//				std::cin >> flag;
+			}
 		}
 		test_report_file.close();
 	}else
